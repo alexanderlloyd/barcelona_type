@@ -1,0 +1,53 @@
+doctype html
+html(lang="en")
+  head
+    title Barcelona Type
+    meta(charset='UTF-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(content='', name='description')
+    meta(content='', name='author')
+    meta(content='3 days', name='revisit-after')
+
+    // build:css /styles/main.css
+    link(href='../../../../stylesheets/sections/pdp.css', rel='stylesheet')
+    
+    //link(rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+    // endbuild
+
+  body(class=page ng-app='instafeed') 
+    #wrapper(ng-controller='ShowImages as images')
+      header
+        .header__text
+          h1 Barcelona Type
+          div.separator                
+          //h2 A collection of typography captured from the streets of Barcelona               
+          p.header__subhead
+            | A collection of typography samples captured with my mobile, from in and around Barcelona.  
+          a.refresh(ng-click='shuffle()')
+            | Refresh
+      |     
+
+      block content
+
+      // Footer
+      footer
+        .about__photo
+          img.profile(src='../../../../assets/img/alex.png', width='100%', height='auto')
+        |             
+        .about__text
+          h2 About me
+          |                 
+          p
+            | I am a designer and front-end developer based in Barcelona. I love wandering the streets of Barcelona and surrounding areas, capturing hidden typographic gems.
+        |             
+        p.footer__caption &copy; Alexander Lloyd 2016
+    // build:js /scripts/main.js
+    
+    script(src='../../../../bower_components/jquery/dist/jquery.js')
+    script(src='../../../../bower_components/angular/angular.js')
+    script(src='../../../../bower_components/angular-route/angular-route.js')   
+    script(src='../../../../bower_components/angular-animate/angular-animate.js')    
+    script(src='../../../../scripts/main.js')
+
+
+    // endbuild

@@ -1,0 +1,13 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+Thumbs.db
+
+# Build files #
+######################
+*sass-cache/**
+*.css.map
+/stylesheets/*
+/node_modules/*
+/bower_components/*

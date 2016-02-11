@@ -1,0 +1,270 @@
+// SITE
+@import "compass";
+@import "../../bower_components/susy/sass/susy";
+
+
+
+/* Variables - Colour */
+$color1: #24555C;
+$color2: #F2F5F8;
+$color3: #6DC0D1;
+$color4: #2D3638;
+$color5: #222222;
+$accent: #D24780;
+
+/* Variables - Breakpoints */
+$bp-s: 420px;
+$bp-m: 720px;
+$bp-l: 1100px;
+
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville|Lato);
+
+
+/* Variables – Fonts */
+$headings: 'Libre Baskerville', serif;
+$paragraph: 'Lato', sans-serif;
+
+body{
+  margin: 0;
+}
+
+h1 {
+    font-family: $headings;
+    font-size: 2rem;
+    font-weight:normal;
+    @media (min-width: $bp-l) {
+        font-size: 4em;
+    }
+}
+
+h2 {
+    font-family: $headings;
+    font-size: 1.5rem;
+      font-weight:normal;
+    margin-bottom: 1em;
+    margin-top:0rem;
+    line-height: 1.2;
+
+}
+
+p {
+    font-family: $paragraph;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.refresh{
+  background: #222;
+  padding: 1rem 5rem;
+  color: #fff;
+  font-family: $paragraph;
+  cursor:pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* Mixins */
+
+@mixin padding {
+    padding-left: 1em;
+    padding-right: 1em;
+    @media (min-width: $bp-s) {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+    @media (min-width: $bp-m) {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    @media (min-width: $bp-l) {
+        padding-left: 2.5em;
+        padding-right: 2.5em;
+    }
+}
+
+$susy: (
+  columns: 12,
+  gutters: 0.2,
+  global-box-sizing: border-box
+);
+
+/* Maps */
+$map-l: (
+  columns: 16,
+  gutters: 0,
+  box-sizing: border-box
+);
+
+@include border-box-sizing;
+
+body {
+    background-color: $color2;
+    font-size: 100%;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+header {
+    @include padding;
+    background-color: $color2;
+    color: darken($color4, 20%);
+    padding-top: 3em;
+    padding-bottom: 3em;
+    text-align: center;
+    h1 {
+        line-height: 1.2;
+        margin:0;
+    }
+}
+
+.separator{
+  width:100px;
+  margin:0 auto;
+  height:1px;
+  background:#111;
+  margin-top:2rem;
+  margin-bottom:2rem;
+}
+
+.header__text {
+    max-width: 24em;
+    margin: 0 auto;
+}
+
+main {
+
+}
+
+nav.categories {
+    background-color: $accent;
+    color: darken($accent, 30%);
+    padding: 1em;
+    font-family: $paragraph;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-top: 4px solid darken($accent, 15%);
+}
+
+ul.gallery__list {
+    @include clearfix;
+    @include padding;
+
+    padding-top: 1em;
+    padding-bottom: 1em;
+    list-style: none;
+    li {
+      padding:2px!important;
+        @include gallery(6);
+        margin-bottom: gutter(12);
+        &:nth-last-child(-n+2) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+footer {
+    @include padding;
+    @include clearfix;
+    padding-top: 3em;
+    background-color: $color5;
+    color: #F2F5F8;
+    clear: both;
+    .about__photo {
+        @include span(3);
+        padding: 0 1em;
+        img {
+            max-width: 20em;
+            border-radius: 50%;
+        }
+    }
+    .about__text {
+        @include span(9 last);
+    }
+
+    p{
+      font-size: 1.1rem;
+    }
+}
+
+
+p.footer__caption {
+
+    color:#fff;
+    clear: both;
+    padding: 3em 0 1em 0;
+    color: #fff;
+}
+
+/* First breakpoint */
+@media (min-width: $bp-s) {
+  ul.gallery__list {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+  ul.gallery__list li {
+    @include gallery(4);
+    &:nth-last-child(-n+3) {
+        margin-bottom: 0;
+    }
+  }
+}
+
+/* 16-column layout  – activated at large breakpoint */
+@media (min-width: $bp-l) {
+  @include layout($map-l);
+  header {
+    @include span(5);
+    padding-top: 5em;
+    text-align:left;
+  }
+
+  .separator{
+    margin-left:0px;
+    margin-right:0px;
+    height:2px;
+    background:#111;
+    margin-top:2.5rem;
+    margin-bottom:2rem;
+  }
+
+  main {
+    @include span(10 last);
+  }
+  nav.categories {
+    border-left: 4px solid darken($accent, 15%);
+  }
+  ul.gallery__list {
+    padding: 0;
+    margin:0;
+  }
+  ul.gallery__list li {
+    @include gallery(3 of 12);
+      margin-bottom: 0;
+      &:nth-last-child(-n+3) {
+          margin-bottom: 0;
+      }
+  }
+  footer {
+    padding-top: 5em;
+    padding-left: 0;
+    padding-right: 0;
+    .about__text {
+      @include span(5);
+      padding-top: 3em;
+    }
+    .about__photo {
+      @include span(3);
+      margin-left: span(6);
+      padding: 0 1.5em;
+    }
+    p.footer__caption {
+      padding-left: 2.5em;
+    }
+  }
+}

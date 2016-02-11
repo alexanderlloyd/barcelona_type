@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Barcelona Type</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <meta content="3 days" name="revisit-after">
+    <!-- build:css /styles/main.css-->
+    <link href="../../../../stylesheets/sections/pdp.css" rel="stylesheet">
+    <!--link(rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")-->
+    <!-- endbuild-->
+  </head>
+  <body ng-app="instafeed"> 
+    <div id="wrapper" ng-controller="ShowImages as images">
+      <header>
+        <div class="header__text">
+          <h1>Barcelona Type</h1>
+          <div class="separator">               </div>
+          <!--h2 A collection of typography captured from the streets of Barcelona               -->
+          <p class="header__subhead">A collection of typography samples captured with my mobile, from in and around Barcelona.  </p><a ng-click="shuffle()" class="refresh">Refresh</a>
+        </div>
+      </header>    
+      <main>          
+        <ul class="gallery__list">
+          <li ng-repeat="p in pics | limitTo: 12" class="gallery__item"><img ng-src="{{p.images.standard_resolution.url}}"></li>
+        </ul>
+      </main>
+      <!-- Footer-->
+      <footer>
+        <div class="about__photo"><img src="../../../../assets/img/alex.png" width="100%" height="auto" class="profile"></div>            
+        <div class="about__text">
+          <h2>About me</h2>                
+          <p>I am a designer and front-end developer based in Barcelona. I love wandering the streets of Barcelona and surrounding areas, capturing hidden typographic gems.</p>
+        </div>            
+        <p class="footer__caption">&copy; Alexander Lloyd 2016</p>
+      </footer>
+    </div>
+    <!-- build:js /scripts/main.js-->
+    <script src="../../../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../../../bower_components/angular/angular.js"></script>
+    <script src="../../../../bower_components/angular-route/angular-route.js">  </script>
+    <script src="../../../../bower_components/angular-animate/angular-animate.js">   </script>
+    <script src="../../../../scripts/main.js"></script>
+    <!-- endbuild-->
+  </body>
+</html>

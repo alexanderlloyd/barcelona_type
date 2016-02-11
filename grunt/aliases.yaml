@@ -1,0 +1,5 @@
+default:
+  - 'jade'
+  - 'compass'
+  - 'watch'
+  - 'open'
